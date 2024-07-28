@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlowerzZ));
             showFlowerzBackground = new Button();
             doSomeDBStuff = new Button();
             textBox1 = new TextBox();
@@ -56,7 +57,7 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.Info;
-            textBox1.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox1.ForeColor = SystemColors.InfoText;
             textBox1.Location = new Point(12, 41);
             textBox1.Multiline = true;
@@ -75,6 +76,7 @@
             Controls.Add(textBox1);
             Controls.Add(doSomeDBStuff);
             Controls.Add(showFlowerzBackground);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FlowerzZ";
             Text = "Flowerz Z";
             ResumeLayout(false);

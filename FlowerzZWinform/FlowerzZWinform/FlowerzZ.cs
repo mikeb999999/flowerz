@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Model;
 
 namespace FlowerzZWinform
 {
@@ -27,18 +28,51 @@ namespace FlowerzZWinform
         {
             this.Cursor = Cursors.WaitCursor;
             textBox1.Text = doSomeDBStuf();
-
             this.Cursor = Cursors.Default;
         }
         private string doSomeDBStuf()
         {
-            Thread.Sleep(3000);
-            return @"Doing
-some
-DB
-stuff
-............................................";
-        }
+            // Code First development targeting a new database
+            // https://learn.microsoft.com/en-gb/ef/ef6/modeling/code-first/workflows/new-database?redirectedfrom=MSDN
+            var log = "";
+            log += LineOfText("Log of EF processing");
+            log += LineOfText("-----------------");
+            log += LineOfText("");
+            log += LineOfText(".");
 
+            // ref. https://learn.microsoft.com/en-gb/ef/ef6/modeling/code-first/workflows/new-database?redirectedfrom=MSDN
+            // // Reading & writing data
+            using (var db = new FlowerzContext())
+            {
+                // Create and save a new Bloom
+                //   Console.Write("Enter a name for a new Bloom: ");
+                //var name = Console.ReadLine();
+                var name = "Sunflower";
+
+                var bloom = new Bloom { Name = name };
+                db.Blooms.Add(bloom);
+                db.SaveChanges();
+
+                // Display all Blooms from the database
+                var query = from b in db.Blooms
+                            orderby b.Name
+                            select b;
+
+                log += LineOfText("All blooms in the database:");
+                foreach (var item in query)
+                {
+                    log += LineOfText(item.Name);
+                }
+
+                //Console.WriteLine("Press any key to exit...");
+                //Console.ReadKey();
+            }
+
+            return log;
+        }
+        private string LineOfText(string line)
+        {
+            return line + Environment.NewLine;
+        }
     }
 }
