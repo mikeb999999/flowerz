@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Model;
-
-
-namespace FlowerzZWinform
+﻿namespace FlowerzZWinform
 {
     public partial class FlowerzZ : Form
     {
@@ -20,42 +7,41 @@ namespace FlowerzZWinform
             InitializeComponent();
         }
 
-        private void showFlowerzBackground_Click(object sender, EventArgs e)
+        private void ShowFlowerzBackground_Click(object sender, EventArgs e)
         {
             var f = new FlowerzBackground();
             f.Show();
         }
-        private void doSomeDBStuff_Click(object sender, EventArgs e)
+        private void PopulateDatabase_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            textBox1.Text = doSomeDBStuf();
+            textBox1.Text = PopulateDatabase();
             this.Cursor = Cursors.Default;
         }
-        private string doSomeDBStuf()
+        private string PopulateDatabase()
         {
             // Code First development targeting a new database
             // https://learn.microsoft.com/en-gb/ef/ef6/modeling/code-first/workflows/new-database?redirectedfrom=MSDN
             var log = "";
             log += LineOfText("Log of EF processing");
-            log += LineOfText("-----------------");
             log += LineOfText("");
-            log += LineOfText(".");
 
             // ref. https://learn.microsoft.com/en-gb/ef/ef6/modeling/code-first/workflows/new-database?redirectedfrom=MSDN
             // // Reading & writing data
             using (var db = new FlowerzContext())
             {
+                // Creates the database if not exists
+                db.Database.EnsureCreated();
+
                 // Create and save a new Bloom
-                //   Console.Write("Enter a name for a new Bloom: ");
-                //var name = Console.ReadLine();
-                var name = "Sunflower";
+                var name = "Sunflower" + " " + Guid.NewGuid();
 
                 var bloom = new Bloom { Name = name };
-                db.Blooms.Add(bloom);
+                db.Bloom.Add(bloom);
                 db.SaveChanges();
 
                 // Display all Blooms from the database
-                var query = from b in db.Blooms
+                var query = from b in db.Bloom
                             orderby b.Name
                             select b;
 
