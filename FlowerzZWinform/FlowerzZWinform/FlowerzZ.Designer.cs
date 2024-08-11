@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlowerzZ));
             showFlowerzBackground = new Button();
-            doSomeDBStuff = new Button();
+            populateDatabase = new Button();
             textBox1 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // showFlowerzBackground
             // 
             showFlowerzBackground.Location = new Point(12, 395);
             showFlowerzBackground.Name = "showFlowerzBackground";
-            showFlowerzBackground.Size = new Size(177, 23);
+            showFlowerzBackground.Size = new Size(290, 23);
             showFlowerzBackground.TabIndex = 0;
-            showFlowerzBackground.Text = "Show Flowerz Background";
+            showFlowerzBackground.Text = "Show Flowerz Background (in Separate Window)";
             showFlowerzBackground.UseVisualStyleBackColor = true;
-            showFlowerzBackground.Click += showFlowerzBackground_Click;
+            showFlowerzBackground.Click += ShowFlowerzBackground_Click;
             // 
-            // doSomeDBStuff
+            // populateDatabase
             // 
-            doSomeDBStuff.Location = new Point(12, 12);
-            doSomeDBStuff.Name = "doSomeDBStuff";
-            doSomeDBStuff.Size = new Size(177, 23);
-            doSomeDBStuff.TabIndex = 1;
-            doSomeDBStuff.Text = "Do Some DB Stuff";
-            doSomeDBStuff.UseVisualStyleBackColor = true;
-            doSomeDBStuff.Click += doSomeDBStuff_Click;
+            populateDatabase.Location = new Point(12, 12);
+            populateDatabase.Name = "populateDatabase";
+            populateDatabase.Size = new Size(177, 23);
+            populateDatabase.TabIndex = 1;
+            populateDatabase.Text = "Populate the Database";
+            populateDatabase.UseVisualStyleBackColor = true;
+            populateDatabase.Click += PopulateDatabase_Click;
             // 
             // textBox1
             // 
             textBox1.BackColor = SystemColors.Info;
-            textBox1.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox1.ForeColor = SystemColors.InfoText;
             textBox1.Location = new Point(12, 41);
             textBox1.Multiline = true;
@@ -65,16 +67,28 @@
             textBox1.ScrollBars = ScrollBars.Both;
             textBox1.Size = new Size(672, 337);
             textBox1.TabIndex = 2;
-            textBox1.Text = "ABCabc123!\"£";
+            textBox1.Text = "-- EF log will appear here --";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(690, 74);
+            button1.Name = "button1";
+            button1.Size = new Size(97, 23);
+            button1.TabIndex = 3;
+            button1.Text = "(PHQ1)";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // FlowerzZ
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(textBox1);
-            Controls.Add(doSomeDBStuff);
+            Controls.Add(populateDatabase);
             Controls.Add(showFlowerzBackground);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FlowerzZ";
             Text = "Flowerz Z";
             ResumeLayout(false);
@@ -84,7 +98,8 @@
         #endregion
 
         private Button showFlowerzBackground;
-        private Button doSomeDBStuff;
+        private Button populateDatabase;
         private TextBox textBox1;
+        private Button button1;
     }
 }
