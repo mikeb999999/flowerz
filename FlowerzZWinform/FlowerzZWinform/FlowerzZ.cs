@@ -51,13 +51,24 @@
                     log += LineOfText(item.Name);
                 }
 
-                //Console.WriteLine("Press any key to exit...");
-                //Console.ReadKey();
             }
 
             return log;
         }
-        private string LineOfText(string line)
+
+        /// <summary> P i n e w o o d HQ1 </summary>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = LineOfText("1) What does the \"new\" keyword in a method signature do and how might it change behaviour?");
+            textBox1.Text += LineOfText("2. Hiding Members\r\n\r\nThe `new` keyword can be used to hide a member inherited from a base class. When a member (method, property, indexer, or event) in a derived class has the same name as one in the base class, you can use the `new` keyword to explicitly hide the base class member. This is called \"method hiding\" or \"member hiding.\"\r\n");
+
+            var demoNewMethod = new AllAboutNewMethodSiggie();
+            textBox1.Text += LineOfText("******") + LineOfText(demoNewMethod.DoPart1()) + LineOfText("******");
+        }
+
+
+
+        static public string LineOfText(string line)
         {
             return line + Environment.NewLine;
         }

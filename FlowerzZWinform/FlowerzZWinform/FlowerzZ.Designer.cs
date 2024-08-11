@@ -32,6 +32,7 @@
             showFlowerzBackground = new Button();
             populateDatabase = new Button();
             textBox1 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // showFlowerzBackground
@@ -44,10 +45,10 @@
             showFlowerzBackground.UseVisualStyleBackColor = true;
             showFlowerzBackground.Click += ShowFlowerzBackground_Click;
             // 
-            // doSomeDBStuff
+            // populateDatabase
             // 
             populateDatabase.Location = new Point(12, 12);
-            populateDatabase.Name = "doSomeDBStuff";
+            populateDatabase.Name = "populateDatabase";
             populateDatabase.Size = new Size(177, 23);
             populateDatabase.TabIndex = 1;
             populateDatabase.Text = "Populate the Database";
@@ -68,11 +69,22 @@
             textBox1.TabIndex = 2;
             textBox1.Text = "-- EF log will appear here --";
             // 
+            // button1
+            // 
+            button1.Location = new Point(690, 74);
+            button1.Name = "button1";
+            button1.Size = new Size(97, 23);
+            button1.TabIndex = 3;
+            button1.Text = "(PHQ1)";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FlowerzZ
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(populateDatabase);
             Controls.Add(showFlowerzBackground);
@@ -88,5 +100,6 @@
         private Button showFlowerzBackground;
         private Button populateDatabase;
         private TextBox textBox1;
+        private Button button1;
     }
 }

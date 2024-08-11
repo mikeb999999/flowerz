@@ -5,7 +5,12 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlowerzZWinform", "FlowerzZWinform.csproj", "{BCEBF571-BC31-49BE-A46B-BBBA5E5A6FB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model.csproj", "{80AE6075-E6FA-4160-89B5-B54D9AEA3BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "..\Model\Model.csproj", "{80AE6075-E6FA-4160-89B5-B54D9AEA3BD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC84D2C0-DFA7-49A8-AA91-057C3F2F42FE}"
+	ProjectSection(SolutionItems) = preProject
+		AllAboutNewMethodSiggie.cs = AllAboutNewMethodSiggie.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
